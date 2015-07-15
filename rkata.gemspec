@@ -15,6 +15,8 @@ Gem::Specification.new do |spec|
   spec.files       = `git ls-files -z`.split("\x0")
   spec.homepage    = "https://github.com/yuku-t/rkata"
 
+  spec.add_development_dependency "guard", "~> 2.12"
+  spec.add_development_dependency "guard-rspec", "~> 4.6"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.3"
 end
