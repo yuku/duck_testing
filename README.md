@@ -1,5 +1,7 @@
 # RKata
 
+[![Build Status](https://travis-ci.org/yuku-t/rkata.svg?branch=master)](https://travis-ci.org/yuku-t/rkata) [![Code Climate](https://codeclimate.com/github/yuku-t/rkata/badges/gpa.svg)](https://codeclimate.com/github/yuku-t/rkata) [![Coverage Status](https://coveralls.io/repos/yuku-t/rkata/badge.svg)](https://coveralls.io/r/yuku-t/rkata)
+
 Simple data type testing tool
 
 ## Usage
