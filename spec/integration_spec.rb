@@ -4,7 +4,7 @@ describe "Integration spec" do
   end
 
   before do
-    klass.prepend(kata_module)
+    klass.send(:prepend, kata_module)
   end
 
   let(:instance) { klass.new }

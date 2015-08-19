@@ -36,7 +36,7 @@ before = Foo.new
 before.double("2")
 # => "22"
 
-Foo.prepend(FooKata)
+Foo.send(:prepend, FooKata)
 
 after = Foo.new
 
