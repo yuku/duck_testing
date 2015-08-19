@@ -1,4 +1,6 @@
+require "rkata/errors"
 require "rkata/method_call_data"
+require "rkata/reporter/raise_error"
 require "rkata/tester"
 require "rkata/version"
 require "rkata/violation"
