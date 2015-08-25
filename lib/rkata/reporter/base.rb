@@ -3,7 +3,7 @@ module RKata
     class Base
       attr_reader :violation
 
-      # @param [Violation]
+      # @param violation [Violation]
       def initialize(violation)
         @violation = violation
       end
