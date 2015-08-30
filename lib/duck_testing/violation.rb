@@ -10,7 +10,7 @@ module DuckTesting
 
     # @param call_data [MethodCallData]
     # @param param [Object] the given object.
-    # @param expected_types [Array<Class>] the expected object types.
+    # @param expected_types [Array<Type::Base>] the expected object types.
     # @param param_or_return [Symbol] the report type, `:param` or `:return`
     def initialize(call_data: nil, param: nil, expected_types: nil, param_or_return: nil)
       @call_data = call_data
@@ -31,7 +31,7 @@ module DuckTesting
 
     # @return [String]
     def expected
-      expected_types.map(&:name).join(", ")
+      expected_types.map(&:to_s).join(", ")
     end
 
     private

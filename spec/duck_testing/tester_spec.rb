@@ -6,12 +6,19 @@ describe DuckTesting::Tester do
 
   shared_context "param matches to expected_types", match: true do
     let(:param) { 1 }
-    let(:expected_types) { [Float, Fixnum] }
+    let(:expected_types) do
+      [
+        DuckTesting::Type::Class.new(Fixnum),
+        DuckTesting::Type::Class.new(Float)
+      ]
+    end
   end
 
   shared_context "param does not match to expected_types", match: false do
     let(:param) { 1 }
-    let(:expected_types) { [Float] }
+    let(:expected_types) do
+      [DuckTesting::Type::Class.new(Float)]
+    end
   end
 
   describe "#test_param" do

@@ -24,11 +24,13 @@ describe "Integration spec" do
 
     let(:kata_module) do
       Module.new do
-        def double(*args)
+        def double(number)
           tester = DuckTesting::Tester.new(self, "double")
-          tester.test_param(args[0], [Fixnum, Float])
+          tester.test_param(number, [DuckTesting::Type::Class.new(Fixnum),
+                                     DuckTesting::Type::Class.new(Float)])
           result = super
-          tester.test_return(result, [Fixnum, Float])
+          tester.test_return(result, [DuckTesting::Type::Class.new(Fixnum),
+                                      DuckTesting::Type::Class.new(Float)])
           result
         end
       end
@@ -48,11 +50,13 @@ describe "Integration spec" do
 
     let(:kata_module) do
       Module.new do
-        def double(*args)
+        def double(number)
           tester = DuckTesting::Tester.new(self, "double")
-          tester.test_param(args[0], [Fixnum, Float])
+          tester.test_param(number, [DuckTesting::Type::Class.new(Fixnum),
+                                     DuckTesting::Type::Class.new(Float)])
           result = super
-          tester.test_return(result, [Fixnum, Float])
+          tester.test_return(result, [DuckTesting::Type::Class.new(Fixnum),
+                                      DuckTesting::Type::Class.new(Float)])
           result
         end
       end
@@ -69,11 +73,14 @@ describe "Integration spec" do
 
     let(:kata_module) do
       Module.new do
-        def double(*args)
+        def double(number)
           tester = DuckTesting::Tester.new(self, "double")
-          tester.test_param(args[0], [Fixnum, Float])
+          tester.test_param(number, [
+            DuckTesting::Type::Class.new(Fixnum),
+            DuckTesting::Type::Class.new(Float)
+          ])
           result = super
-          tester.test_return(result, [String])
+          tester.test_return(result, [DuckTesting::Type::Class.new(String)])
           result
         end
       end
