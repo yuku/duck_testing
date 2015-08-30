@@ -41,11 +41,9 @@ describe "OrderIndependentArray type integration spec" do
           tester.test_param(key, [
             DuckTesting::Type::Class.new(Symbol)
           ])
-          result = super
-          tester.test_return(result, [
+          tester.test_return(super, [
             DuckTesting::Type::Class.new(Object)
           ])
-          result
         end
       end
     end
@@ -77,11 +75,9 @@ describe "OrderIndependentArray type integration spec" do
           tester.test_param(key, [
             DuckTesting::Type::Class.new(Symbol)
           ])
-          result = super
-          tester.test_return(result, [
+          tester.test_return(super, [
             DuckTesting::Type::Class.new(Object)
           ])
-          result
         end
       end
     end
@@ -110,11 +106,9 @@ describe "OrderIndependentArray type integration spec" do
           tester.test_param(key, [
             DuckTesting::Type::Class.new(Symbol)
           ])
-          result = super
-          tester.test_return(result, [
+          tester.test_return(super, [
             DuckTesting::Type::Class.new(Symbol)
           ])
-          result
         end
       end
     end

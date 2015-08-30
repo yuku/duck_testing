@@ -30,12 +30,10 @@ describe "Integration spec" do
             DuckTesting::Type::Class.new(Fixnum),
             DuckTesting::Type::Class.new(Float)
           ])
-          result = super
-          tester.test_return(result, [
+          tester.test_return(super, [
             DuckTesting::Type::Class.new(Fixnum),
             DuckTesting::Type::Class.new(Float)
           ])
-          result
         end
       end
     end
@@ -60,12 +58,10 @@ describe "Integration spec" do
             DuckTesting::Type::Class.new(Fixnum),
             DuckTesting::Type::Class.new(Float)
           ])
-          result = super
-          tester.test_return(result, [
+          tester.test_return(super, [
             DuckTesting::Type::Class.new(Fixnum),
             DuckTesting::Type::Class.new(Float)
           ])
-          result
         end
       end
     end
@@ -87,11 +83,9 @@ describe "Integration spec" do
             DuckTesting::Type::Class.new(Fixnum),
             DuckTesting::Type::Class.new(Float)
           ])
-          result = super
-          tester.test_return(result, [
+          tester.test_return(super, [
             DuckTesting::Type::Class.new(String)
           ])
-          result
         end
       end
     end

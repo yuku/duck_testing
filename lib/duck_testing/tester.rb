@@ -16,8 +16,10 @@ module DuckTesting
 
     # @param param [Object]
     # @param expected_types [Array<Type::Base>]
+    # @return [Object]
     def test_return(param, expected_types)
       test(param, expected_types, :return)
+      param
     end
 
     # @param param [Object]

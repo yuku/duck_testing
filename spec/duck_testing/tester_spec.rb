@@ -45,6 +45,10 @@ describe DuckTesting::Tester do
       it "does not raise error" do
         expect { subject }.not_to raise_error
       end
+
+      it "returns the given param" do
+        should eq param
+      end
     end
 
     context "when param does not match to expected_types", match: false do
