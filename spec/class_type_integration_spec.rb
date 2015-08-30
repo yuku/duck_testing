@@ -26,12 +26,14 @@ describe "Integration spec" do
       Module.new do
         def double(number)
           tester = DuckTesting::Tester.new(self, "double")
-          tester.test_param(number, [DuckTesting::Type::Class.new(Fixnum),
-                                     DuckTesting::Type::Class.new(Float)])
-          result = super
-          tester.test_return(result, [DuckTesting::Type::Class.new(Fixnum),
-                                      DuckTesting::Type::Class.new(Float)])
-          result
+          tester.test_param(number, [
+            DuckTesting::Type::ClassInstance.new(Fixnum),
+            DuckTesting::Type::ClassInstance.new(Float)
+          ])
+          tester.test_return(super, [
+            DuckTesting::Type::ClassInstance.new(Fixnum),
+            DuckTesting::Type::ClassInstance.new(Float)
+          ])
         end
       end
     end
@@ -52,12 +54,14 @@ describe "Integration spec" do
       Module.new do
         def double(number)
           tester = DuckTesting::Tester.new(self, "double")
-          tester.test_param(number, [DuckTesting::Type::Class.new(Fixnum),
-                                     DuckTesting::Type::Class.new(Float)])
-          result = super
-          tester.test_return(result, [DuckTesting::Type::Class.new(Fixnum),
-                                      DuckTesting::Type::Class.new(Float)])
-          result
+          tester.test_param(number, [
+            DuckTesting::Type::ClassInstance.new(Fixnum),
+            DuckTesting::Type::ClassInstance.new(Float)
+          ])
+          tester.test_return(super, [
+            DuckTesting::Type::ClassInstance.new(Fixnum),
+            DuckTesting::Type::ClassInstance.new(Float)
+          ])
         end
       end
     end
@@ -76,12 +80,12 @@ describe "Integration spec" do
         def double(number)
           tester = DuckTesting::Tester.new(self, "double")
           tester.test_param(number, [
-            DuckTesting::Type::Class.new(Fixnum),
-            DuckTesting::Type::Class.new(Float)
+            DuckTesting::Type::ClassInstance.new(Fixnum),
+            DuckTesting::Type::ClassInstance.new(Float)
           ])
-          result = super
-          tester.test_return(result, [DuckTesting::Type::Class.new(String)])
-          result
+          tester.test_return(super, [
+            DuckTesting::Type::ClassInstance.new(String)
+          ])
         end
       end
     end

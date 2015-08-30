@@ -8,8 +8,8 @@ describe DuckTesting::Tester do
     let(:param) { 1 }
     let(:expected_types) do
       [
-        DuckTesting::Type::Class.new(Fixnum),
-        DuckTesting::Type::Class.new(Float)
+        DuckTesting::Type::ClassInstance.new(Fixnum),
+        DuckTesting::Type::ClassInstance.new(Float)
       ]
     end
   end
@@ -17,7 +17,7 @@ describe DuckTesting::Tester do
   shared_context "param does not match to expected_types", match: false do
     let(:param) { 1 }
     let(:expected_types) do
-      [DuckTesting::Type::Class.new(Float)]
+      [DuckTesting::Type::ClassInstance.new(Float)]
     end
   end
 
@@ -44,6 +44,10 @@ describe DuckTesting::Tester do
     context "when param matches to expected_types", match: true do
       it "does not raise error" do
         expect { subject }.not_to raise_error
+      end
+
+      it "returns the given param" do
+        should eq param
       end
     end
 

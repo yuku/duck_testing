@@ -23,15 +23,13 @@ module FooKata
   def double(x)
     tester = DuckTesting::Tester.new(self, "double")
     tester.test_param(x, [
-      DuckTesting::Type::Class.new(Fixnum),
-      DuckTesting::Type::Class.new(Float)
+      DuckTesting::Type::ClassInstance.new(Fixnum),
+      DuckTesting::Type::ClassInstance.new(Float)
     ])
-    result = super
-    tester.test_return(result, [
-      DuckTesting::Type::Class.new(Fixnum),
-      DuckTesting::Type::Class.new(Float)
+    tester.test_return(super, [
+      DuckTesting::Type::ClassInstance.new(Fixnum),
+      DuckTesting::Type::ClassInstance.new(Float)
     ])
-    result
   end
 end
 ```
