@@ -48,8 +48,8 @@ describe DuckTesting::Violation do
 
     let(:expected_types) do
       [
-        DuckTesting::Type::Class.new(Fixnum),
-        DuckTesting::Type::Class.new(Float)
+        DuckTesting::Type::ClassInstance.new(Fixnum),
+        DuckTesting::Type::ClassInstance.new(Float)
       ]
     end
 

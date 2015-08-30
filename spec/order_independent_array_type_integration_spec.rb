@@ -28,13 +28,13 @@ describe "OrderIndependentArray type integration spec" do
           tester = DuckTesting::Tester.new(self, "sum")
           tester.test_param(array, [
             DuckTesting::Type::OrderIndependentArray.new(
-              DuckTesting::Type::Class.new(Fixnum),
-              DuckTesting::Type::Class.new(Float)
+              DuckTesting::Type::ClassInstance.new(Fixnum),
+              DuckTesting::Type::ClassInstance.new(Float)
             )
           ])
           tester.test_return(super, [
-            DuckTesting::Type::Class.new(Fixnum),
-            DuckTesting::Type::Class.new(Float)
+            DuckTesting::Type::ClassInstance.new(Fixnum),
+            DuckTesting::Type::ClassInstance.new(Float)
           ])
         end
       end
@@ -58,13 +58,13 @@ describe "OrderIndependentArray type integration spec" do
           tester = DuckTesting::Tester.new(self, "sum")
           tester.test_param(array, [
             DuckTesting::Type::OrderIndependentArray.new(
-              DuckTesting::Type::Class.new(Fixnum),
-              DuckTesting::Type::Class.new(Float)
+              DuckTesting::Type::ClassInstance.new(Fixnum),
+              DuckTesting::Type::ClassInstance.new(Float)
             )
           ])
           tester.test_return(super, [
-            DuckTesting::Type::Class.new(Fixnum),
-            DuckTesting::Type::Class.new(Float)
+            DuckTesting::Type::ClassInstance.new(Fixnum),
+            DuckTesting::Type::ClassInstance.new(Float)
           ])
         end
       end
@@ -85,12 +85,12 @@ describe "OrderIndependentArray type integration spec" do
           tester = DuckTesting::Tester.new(self, "sum")
           tester.test_param(array, [
             DuckTesting::Type::OrderIndependentArray.new(
-              DuckTesting::Type::Class.new(Fixnum),
-              DuckTesting::Type::Class.new(Float)
+              DuckTesting::Type::ClassInstance.new(Fixnum),
+              DuckTesting::Type::ClassInstance.new(Float)
             )
           ])
           tester.test_return(super, [
-            DuckTesting::Type::Class.new(String)
+            DuckTesting::Type::ClassInstance.new(String)
           ])
         end
       end

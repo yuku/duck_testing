@@ -33,16 +33,16 @@ describe "OrderIndependentArray type integration spec" do
           tester.test_param(keylist, [
             DuckTesting::Type::OrderIndependentArray.new(
               DuckTesting::Type::OrderDependentArray.new(
-                DuckTesting::Type::Class.new(Symbol),
-                DuckTesting::Type::Class.new(Object)
+                DuckTesting::Type::ClassInstance.new(Symbol),
+                DuckTesting::Type::ClassInstance.new(Object)
               )
             )
           ])
           tester.test_param(key, [
-            DuckTesting::Type::Class.new(Symbol)
+            DuckTesting::Type::ClassInstance.new(Symbol)
           ])
           tester.test_return(super, [
-            DuckTesting::Type::Class.new(Object)
+            DuckTesting::Type::ClassInstance.new(Object)
           ])
         end
       end
@@ -67,16 +67,16 @@ describe "OrderIndependentArray type integration spec" do
           tester.test_param(keylist, [
             DuckTesting::Type::OrderIndependentArray.new(
               DuckTesting::Type::OrderDependentArray.new(
-                DuckTesting::Type::Class.new(Symbol),
-                DuckTesting::Type::Class.new(Object)
+                DuckTesting::Type::ClassInstance.new(Symbol),
+                DuckTesting::Type::ClassInstance.new(Object)
               )
             )
           ])
           tester.test_param(key, [
-            DuckTesting::Type::Class.new(Symbol)
+            DuckTesting::Type::ClassInstance.new(Symbol)
           ])
           tester.test_return(super, [
-            DuckTesting::Type::Class.new(Object)
+            DuckTesting::Type::ClassInstance.new(Object)
           ])
         end
       end
@@ -98,16 +98,16 @@ describe "OrderIndependentArray type integration spec" do
           tester.test_param(keylist, [
             DuckTesting::Type::OrderIndependentArray.new(
               DuckTesting::Type::OrderDependentArray.new(
-                DuckTesting::Type::Class.new(Symbol),
-                DuckTesting::Type::Class.new(Object)
+                DuckTesting::Type::ClassInstance.new(Symbol),
+                DuckTesting::Type::ClassInstance.new(Object)
               )
             )
           ])
           tester.test_param(key, [
-            DuckTesting::Type::Class.new(Symbol)
+            DuckTesting::Type::ClassInstance.new(Symbol)
           ])
           tester.test_return(super, [
-            DuckTesting::Type::Class.new(Symbol)
+            DuckTesting::Type::ClassInstance.new(Symbol)
           ])
         end
       end

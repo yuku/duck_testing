@@ -2,7 +2,7 @@ require "duck_testing/type/base"
 
 module DuckTesting
   module Type
-    class Class < Base
+    class ClassInstance < Base
       attr_reader :klass
 
       def initialize(klass)
