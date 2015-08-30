@@ -1,6 +1,6 @@
 require "forwardable"
 
-module RKata
+module DuckTesting
   class Violation
     extend Forwardable
 

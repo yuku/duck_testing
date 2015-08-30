@@ -1,4 +1,4 @@
 require "coveralls"
 Coveralls.wear!
 
-require "rkata"
+require "duck_testing"

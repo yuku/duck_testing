@@ -1,6 +1,6 @@
-# RKata
+# DuckTesting
 
-[![Build Status](https://travis-ci.org/yuku-t/rkata.svg?branch=master)](https://travis-ci.org/yuku-t/rkata) [![Code Climate](https://codeclimate.com/github/yuku-t/rkata/badges/gpa.svg)](https://codeclimate.com/github/yuku-t/rkata) [![Coverage Status](https://coveralls.io/repos/yuku-t/rkata/badge.svg)](https://coveralls.io/r/yuku-t/rkata)
+[![Build Status](https://travis-ci.org/yuku-t/duck_testing.svg?branch=master)](https://travis-ci.org/yuku-t/duck_testing) [![Code Climate](https://codeclimate.com/github/yuku-t/duck_testing/badges/gpa.svg)](https://codeclimate.com/github/yuku-t/duck_testing) [![Coverage Status](https://coveralls.io/repos/yuku-t/duck_testing/badge.svg)](https://coveralls.io/r/yuku-t/duck_testing)
 
 Simple data type testing tool
 
@@ -9,7 +9,7 @@ Simple data type testing tool
 Suppose there are a class and corresponding _kata_ module:
 
 ```rb
-require "rkata"
+require "duck_testing"
 
 class Foo
   # @param [Fixnum, Float]
@@ -21,7 +21,7 @@ end
 
 module FooKata
   def double(x)
-    tester = RKata::Tester.new(self, "double")
+    tester = DuckTesting::Tester.new(self, "double")
     tester.test_param(x, [Fixnum, Float])
     result = super
     tester.test_return(result, [Fixnum, Float])

@@ -1,4 +1,4 @@
-module RKata
+module DuckTesting
   class MethodCallData
     # @param receiver [Object] the receiver object.
     # @param method_name [String] the invoked method's name.

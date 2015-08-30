@@ -1,11 +1,11 @@
-describe RKata::Reporter::RaiseError do
+describe DuckTesting::Reporter::RaiseError do
   let(:reporter) { described_class.new(violation) }
-  let(:violation) { RKata::Violation.new(violation_param) }
+  let(:violation) { DuckTesting::Violation.new(violation_param) }
   let(:violation_param) do
     { call_data: call_data,
       expected_types: [] }
   end
-  let(:call_data) { RKata::MethodCallData.new("receiver", "mehtod_name") }
+  let(:call_data) { DuckTesting::MethodCallData.new("receiver", "mehtod_name") }
 
   describe "#report" do
     subject { reporter.report }
@@ -16,7 +16,7 @@ describe RKata::Reporter::RaiseError do
       end
 
       it "raise ContractViolationError" do
-        expect { subject }.to raise_error(RKata::ContractViolationError)
+        expect { subject }.to raise_error(DuckTesting::ContractViolationError)
         expect { subject }.to raise_error(/Contract violation for argument/)
       end
     end
@@ -27,7 +27,7 @@ describe RKata::Reporter::RaiseError do
       end
 
       it "raise ContractViolationError" do
-        expect { subject }.to raise_error(RKata::ContractViolationError)
+        expect { subject }.to raise_error(DuckTesting::ContractViolationError)
         expect { subject }.to raise_error(/Contract violation for return value/)
       end
     end

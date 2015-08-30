@@ -1,4 +1,4 @@
-module RKata
+module DuckTesting
   class Tester
     attr_reader :call_data
 

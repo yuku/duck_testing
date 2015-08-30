@@ -1,6 +1,6 @@
-require "rkata/reporter/base"
+require "duck_testing/reporter/base"
 
-module RKata
+module DuckTesting
   module Reporter
     class RaiseError < Base
       # @note Override Base#report.

@@ -1,4 +1,4 @@
-module RKata
+module DuckTesting
   module Reporter
     class Base
       attr_reader :violation

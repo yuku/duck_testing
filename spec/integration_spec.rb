@@ -25,7 +25,7 @@ describe "Integration spec" do
     let(:kata_module) do
       Module.new do
         def double(*args)
-          tester = RKata::Tester.new(self, "double")
+          tester = DuckTesting::Tester.new(self, "double")
           tester.test_param(args[0], [Fixnum, Float])
           result = super
           tester.test_return(result, [Fixnum, Float])
@@ -49,7 +49,7 @@ describe "Integration spec" do
     let(:kata_module) do
       Module.new do
         def double(*args)
-          tester = RKata::Tester.new(self, "double")
+          tester = DuckTesting::Tester.new(self, "double")
           tester.test_param(args[0], [Fixnum, Float])
           result = super
           tester.test_return(result, [Fixnum, Float])
@@ -59,7 +59,7 @@ describe "Integration spec" do
     end
 
     it "raises ContractViolationError" do
-      expect { subject }.to raise_error(RKata::ContractViolationError)
+      expect { subject }.to raise_error(DuckTesting::ContractViolationError)
       expect { subject }.to raise_error(/Contract violation for argument/)
     end
   end
@@ -70,7 +70,7 @@ describe "Integration spec" do
     let(:kata_module) do
       Module.new do
         def double(*args)
-          tester = RKata::Tester.new(self, "double")
+          tester = DuckTesting::Tester.new(self, "double")
           tester.test_param(args[0], [Fixnum, Float])
           result = super
           tester.test_return(result, [String])
@@ -80,7 +80,7 @@ describe "Integration spec" do
     end
 
     it "raises ContractViolationError" do
-      expect { subject }.to raise_error(RKata::ContractViolationError)
+      expect { subject }.to raise_error(DuckTesting::ContractViolationError)
       expect { subject }.to raise_error(/Contract violation for return value/)
     end
   end

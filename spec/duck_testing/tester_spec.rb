@@ -1,4 +1,4 @@
-describe RKata::Tester do
+describe DuckTesting::Tester do
   let(:tester) { described_class.new(*constract_param) }
   let(:constract_param) { [receiver, method_name] }
   let(:receiver) { nil }
@@ -25,7 +25,7 @@ describe RKata::Tester do
 
     context "when param does not match to expected_types", match: false do
       it "raise ContractViolationError" do
-        expect { subject }.to raise_error(RKata::ContractViolationError)
+        expect { subject }.to raise_error(DuckTesting::ContractViolationError)
         expect { subject }.to raise_error(/Contract violation for argument/)
       end
     end
@@ -42,7 +42,7 @@ describe RKata::Tester do
 
     context "when param does not match to expected_types", match: false do
       it "raise ContractViolationError" do
-        expect { subject }.to raise_error(RKata::ContractViolationError)
+        expect { subject }.to raise_error(DuckTesting::ContractViolationError)
         expect { subject }.to raise_error(/Contract violation for return value/)
       end
     end

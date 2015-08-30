@@ -1,4 +1,4 @@
-describe RKata::MethodCallData do
+describe DuckTesting::MethodCallData do
   let(:call_data) { described_class.new(*params) }
   let(:params) { [receiver, method_name] }
   let(:receiver) { nil }

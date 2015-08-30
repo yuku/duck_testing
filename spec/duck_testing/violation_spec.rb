@@ -1,4 +1,4 @@
-describe RKata::Violation do
+describe DuckTesting::Violation do
   let(:violation) { described_class.new(params) }
   let(:params) do
     { call_data: call_data,
