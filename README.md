@@ -26,12 +26,10 @@ module FooKata
       DuckTesting::Type::ClassInstance.new(Fixnum),
       DuckTesting::Type::ClassInstance.new(Float)
     ])
-    result = super
-    tester.test_return(result, [
+    tester.test_return(super, [
       DuckTesting::Type::ClassInstance.new(Fixnum),
       DuckTesting::Type::ClassInstance.new(Float)
     ])
-    result
   end
 end
 ```
