@@ -26,11 +26,15 @@ describe "Integration spec" do
       Module.new do
         def double(number)
           tester = DuckTesting::Tester.new(self, "double")
-          tester.test_param(number, [DuckTesting::Type::Class.new(Fixnum),
-                                     DuckTesting::Type::Class.new(Float)])
+          tester.test_param(number, [
+            DuckTesting::Type::Class.new(Fixnum),
+            DuckTesting::Type::Class.new(Float)
+          ])
           result = super
-          tester.test_return(result, [DuckTesting::Type::Class.new(Fixnum),
-                                      DuckTesting::Type::Class.new(Float)])
+          tester.test_return(result, [
+            DuckTesting::Type::Class.new(Fixnum),
+            DuckTesting::Type::Class.new(Float)
+          ])
           result
         end
       end
@@ -52,11 +56,15 @@ describe "Integration spec" do
       Module.new do
         def double(number)
           tester = DuckTesting::Tester.new(self, "double")
-          tester.test_param(number, [DuckTesting::Type::Class.new(Fixnum),
-                                     DuckTesting::Type::Class.new(Float)])
+          tester.test_param(number, [
+            DuckTesting::Type::Class.new(Fixnum),
+            DuckTesting::Type::Class.new(Float)
+          ])
           result = super
-          tester.test_return(result, [DuckTesting::Type::Class.new(Fixnum),
-                                      DuckTesting::Type::Class.new(Float)])
+          tester.test_return(result, [
+            DuckTesting::Type::Class.new(Fixnum),
+            DuckTesting::Type::Class.new(Float)
+          ])
           result
         end
       end
@@ -80,7 +88,9 @@ describe "Integration spec" do
             DuckTesting::Type::Class.new(Float)
           ])
           result = super
-          tester.test_return(result, [DuckTesting::Type::Class.new(String)])
+          tester.test_return(result, [
+            DuckTesting::Type::Class.new(String)
+          ])
           result
         end
       end
