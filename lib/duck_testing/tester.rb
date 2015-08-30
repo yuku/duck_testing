@@ -9,28 +9,30 @@ module DuckTesting
     end
 
     # @param param [Object]
-    # @param expected_types [Array<Class>]
+    # @param expected_types [Array<Type::Base>]
     def test_param(param, expected_types)
       test(param, expected_types, :param)
     end
 
     # @param param [Object]
-    # @param expected_types [Array<Class>]
+    # @param expected_types [Array<Type::Base>]
     def test_return(param, expected_types)
       test(param, expected_types, :return)
     end
 
     # @param param [Object]
-    # @param expected_types [Array<Class>]
+    # @param expected_types [Array<Type::Base>]
     # @return [true, false]
     def match?(param, expected_types)
-      !expected_types.all? { |t| !param.is_a?(t) }
+      expected_types.any? do |type|
+        type.match?(param)
+      end
     end
 
     private
 
     # @param param [Object]
-    # @param expected_types [Array<Class>]
+    # @param expected_types [Array<Type::Base>]
     # @param type [Symbol] `:param` or `:return`
     def test(param, expected_types, type)
       return if match?(param, expected_types)

@@ -46,7 +46,12 @@ describe DuckTesting::Violation do
   describe "#expected" do
     subject { violation.expected }
 
-    let(:expected_types) { [Fixnum, Float] }
+    let(:expected_types) do
+      [
+        DuckTesting::Type::Class.new(Fixnum),
+        DuckTesting::Type::Class.new(Float)
+      ]
+    end
 
     it { should eq "Fixnum, Float" }
   end

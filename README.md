@@ -22,9 +22,15 @@ end
 module FooKata
   def double(x)
     tester = DuckTesting::Tester.new(self, "double")
-    tester.test_param(x, [Fixnum, Float])
+    tester.test_param(x, [
+      DuckTesting::Type::Class.new(Fixnum),
+      DuckTesting::Type::Class.new(Float)
+    ])
     result = super
-    tester.test_return(result, [Fixnum, Float])
+    tester.test_return(result, [
+      DuckTesting::Type::Class.new(Fixnum),
+      DuckTesting::Type::Class.new(Float)
+    ])
     result
   end
 end
