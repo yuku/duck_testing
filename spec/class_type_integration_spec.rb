@@ -4,7 +4,7 @@ describe "Integration spec" do
   end
 
   before do
-    klass.send(:prepend, kata_module)
+    klass.send(:prepend, duck_testing_module)
   end
 
   let(:instance) { klass.new }
@@ -22,7 +22,7 @@ describe "Integration spec" do
   context "when expected parameter and return are given" do
     let(:param) { 1 }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def double(number)
           tester = DuckTesting::Tester.new(self, "double")
@@ -50,7 +50,7 @@ describe "Integration spec" do
   context "when unexpected parameter is given" do
     let(:param) { "string" }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def double(number)
           tester = DuckTesting::Tester.new(self, "double")
@@ -75,7 +75,7 @@ describe "Integration spec" do
   context "when unexpected result is given" do
     let(:param) { 1 }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def double(number)
           tester = DuckTesting::Tester.new(self, "double")

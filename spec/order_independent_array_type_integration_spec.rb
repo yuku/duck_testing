@@ -4,7 +4,7 @@ describe "OrderIndependentArray type integration spec" do
   end
 
   before do
-    klass.send(:prepend, kata_module)
+    klass.send(:prepend, duck_testing_module)
   end
 
   let(:instance) { klass.new }
@@ -22,7 +22,7 @@ describe "OrderIndependentArray type integration spec" do
   context "when expected parameter and return are given" do
     let(:param) { [1, 0.1] }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def sum(array)
           tester = DuckTesting::Tester.new(self, "sum")
@@ -52,7 +52,7 @@ describe "OrderIndependentArray type integration spec" do
   context "when unexpected parameter is given" do
     let(:param) { "string" }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def sum(array)
           tester = DuckTesting::Tester.new(self, "sum")
@@ -79,7 +79,7 @@ describe "OrderIndependentArray type integration spec" do
   context "when unexpected result is given" do
     let(:param) { [1, 0.1] }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def sum(array)
           tester = DuckTesting::Tester.new(self, "sum")

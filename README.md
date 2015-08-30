@@ -6,7 +6,7 @@ Simple data type testing tool
 
 ## Usage
 
-Suppose there are a class and corresponding _kata_ module:
+Suppose there are a class and corresponding _duck_testing_ module:
 
 ```rb
 require "duck_testing"
@@ -19,7 +19,7 @@ class Foo
   end
 end
 
-module FooKata
+module FooDuckTesting
   def double(x)
     tester = DuckTesting::Tester.new(self, "double")
     tester.test_param(x, [
@@ -34,7 +34,7 @@ module FooKata
 end
 ```
 
-Now you can activate type testing by prepending _kata_ module into the class:
+Now you can activate type testing by prepending _duck_testing_ module into the class:
 
 ```rb
 before = Foo.new
@@ -42,7 +42,7 @@ before = Foo.new
 before.double("2")
 # => "22"
 
-Foo.send(:prepend, FooKata)
+Foo.send(:prepend, FooDuckTesting)
 
 after = Foo.new
 
@@ -58,5 +58,5 @@ after.double("2")
 
 ## TODO
 
-- Generate _kata_ module by YARD document.
+- Generate _duck_testing_ module by YARD document.
 - RSpec integration.

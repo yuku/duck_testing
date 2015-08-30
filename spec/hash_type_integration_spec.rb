@@ -4,7 +4,7 @@ describe "Hash type integration spec" do
   end
 
   before do
-    klass.send(:prepend, kata_module)
+    klass.send(:prepend, duck_testing_module)
   end
 
   let(:instance) { klass.new }
@@ -24,7 +24,7 @@ describe "Hash type integration spec" do
   context "when expected parameter and return are given" do
     let(:params) { [{ a: 1, b: 2 }, :b, "hello"] }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def get(hash, key, default = nil)
           tester = DuckTesting::Tester.new(self, "get")
@@ -58,7 +58,7 @@ describe "Hash type integration spec" do
   context "when unexpected parameter is given" do
     let(:params) { [{ "a" => 1 }, "a"] }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def get(hash, _key, _default = nil)
           tester = DuckTesting::Tester.new(self, "get")
@@ -81,7 +81,7 @@ describe "Hash type integration spec" do
   context "when unexpected result is given" do
     let(:params) { [{ a: 1, b: 2 }, :b, "hello"] }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def get(hash, key, default = nil)
           tester = DuckTesting::Tester.new(self, "get")

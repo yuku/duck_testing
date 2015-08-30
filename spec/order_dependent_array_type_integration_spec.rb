@@ -4,7 +4,7 @@ describe "OrderIndependentArray type integration spec" do
   end
 
   before do
-    klass.send(:prepend, kata_module)
+    klass.send(:prepend, duck_testing_module)
   end
 
   let(:instance) { klass.new }
@@ -26,7 +26,7 @@ describe "OrderIndependentArray type integration spec" do
   context "when expected parameter and return are given" do
     let(:params) { [[[:a, 1], [:b, 2]], :b] }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def find(keylist, key)
           tester = DuckTesting::Tester.new(self, "find")
@@ -60,7 +60,7 @@ describe "OrderIndependentArray type integration spec" do
   context "when unexpected parameter is given" do
     let(:params) { [[["a", 1], ["b", 2]], "b"] }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def find(keylist, key)
           tester = DuckTesting::Tester.new(self, "find")
@@ -91,7 +91,7 @@ describe "OrderIndependentArray type integration spec" do
   context "when unexpected result is given" do
     let(:params) { [[[:a, 1], [:b, 2]], :b] }
 
-    let(:kata_module) do
+    let(:duck_testing_module) do
       Module.new do
         def find(keylist, key)
           tester = DuckTesting::Tester.new(self, "find")
