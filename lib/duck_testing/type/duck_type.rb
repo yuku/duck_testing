@@ -10,7 +10,7 @@ module DuckTesting
       end
 
       # @param object [Object]
-      # @return [true, false]
+      # @return [Boolean]
       def match?(object)
         object.respond_to?(name)
       end

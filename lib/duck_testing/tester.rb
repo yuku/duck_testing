@@ -9,13 +9,13 @@ module DuckTesting
     end
 
     # @param param [Object]
-    # @param expected_types [Array<Type::Base>]
+    # @param expected_types [Array<DuckTesting::Type::Base>]
     def test_param(param, expected_types)
       test(param, expected_types, :param)
     end
 
     # @param param [Object]
-    # @param expected_types [Array<Type::Base>]
+    # @param expected_types [Array<DuckTesting::Type::Base>]
     # @return [Object]
     def test_return(param, expected_types)
       test(param, expected_types, :return)
@@ -23,8 +23,8 @@ module DuckTesting
     end
 
     # @param param [Object]
-    # @param expected_types [Array<Type::Base>]
-    # @return [true, false]
+    # @param expected_types [Array<DuckTesting::Type::Base>]
+    # @return [Boolean]
     def match?(param, expected_types)
       expected_types.any? do |type|
         type.match?(param)
@@ -34,7 +34,7 @@ module DuckTesting
     private
 
     # @param param [Object]
-    # @param expected_types [Array<Type::Base>]
+    # @param expected_types [Array<DuckTesting::Type::Base>]
     # @param type [Symbol] `:param` or `:return`
     def test(param, expected_types, type)
       return if match?(param, expected_types)

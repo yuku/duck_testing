@@ -3,7 +3,7 @@ module DuckTesting
     class Base
       attr_reader :violation
 
-      # @param violation [Violation]
+      # @param violation [DuckTesting::Violation]
       def initialize(violation)
         @violation = violation
       end

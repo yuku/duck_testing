@@ -5,15 +5,15 @@ module DuckTesting
     class Hash < Base
       attr_reader :key_types, :value_types
 
-      # @param key_types [Array<Type::Base>]
-      # @param value_types [Array<Type::Base>]
+      # @param key_types [Array<DuckTesting::Type::Base>]
+      # @param value_types [Array<DuckTesting::Type::Base>]
       def initialize(key_types, value_types)
         @key_types = key_types
         @value_types = value_types
       end
 
       # @param object [Object]
-      # @return [true, false]
+      # @return [Boolean]
       def match?(object)
         return false unless object.is_a?(::Hash)
         match_keys?(object) && match_values?(object)
@@ -27,7 +27,7 @@ module DuckTesting
       private
 
       # @param hash [Hash]
-      # @return [true, false]
+      # @return [Boolean]
       def match_keys?(hash)
         hash.keys.all? do |key|
           key_types.all? do |type|
@@ -37,7 +37,7 @@ module DuckTesting
       end
 
       # @param hash [Hash]
-      # @return [true, false]
+      # @return [Boolean]
       def match_values?(hash)
         hash.values.all? do |key|
           value_types.all? do |type|

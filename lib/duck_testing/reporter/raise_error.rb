@@ -3,7 +3,7 @@ require "duck_testing/reporter/base"
 module DuckTesting
   module Reporter
     class RaiseError < Base
-      # @note Override Base#report.
+      # @note Override {DuckTesting::Reporter::Base#report}.
       def report
         fail ContractViolationError, failure_message
       end

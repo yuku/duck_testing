@@ -10,7 +10,7 @@ module DuckTesting
       end
 
       # @param [Object] array
-      # @return [true, false]
+      # @return [Boolean]
       def match?(array)
         return false unless array.is_a?(Array) && array.size == types.size
         array.zip(types).all? do |array_element, type|

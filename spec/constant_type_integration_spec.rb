@@ -11,8 +11,8 @@ describe "Constant type integration spec" do
 
   let(:klass) do
     Class.new do
-      # @param a [true, false]
-      # @return [true, false]
+      # @param a [Boolean]
+      # @return [Boolean]
       def not(a)
         !a
       end
