@@ -16,6 +16,8 @@ Gem::Specification.new do |spec|
   spec.files                 = `git ls-files -z`.split("\x0")
   spec.homepage              = "https://github.com/yuku-t/duck_testing"
 
+  spec.add_dependency "yard", "~> 0.8.7"
+
   spec.add_development_dependency "guard", "~> 2.12"
   spec.add_development_dependency "guard-rspec", "~> 4.6"
   spec.add_development_dependency "guard-rubocop", "~> 1.2"
