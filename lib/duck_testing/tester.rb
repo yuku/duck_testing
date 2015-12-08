@@ -37,7 +37,7 @@ module DuckTesting
     # @param expected_types [Array<DuckTesting::Type::Base>]
     # @param type [Symbol] `:param` or `:return`
     def test(param, expected_types, type)
-      return if match?(param, expected_types)
+      return if match?(param, expected_types) || expected_types.empty?
       violation = Violation.new(
         call_data: call_data,
         param: param,

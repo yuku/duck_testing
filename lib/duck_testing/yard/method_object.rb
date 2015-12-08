@@ -8,7 +8,11 @@ module DuckTesting
       #   Returns the name of the object.
       #
       #   @return [String]
-      def_delegators :@yard_object, "name"
+      # @!attribute [r] scope
+      #   Returns the scope of the object.
+      #
+      #   @return [Symbol]
+      def_delegators :@yard_object, "name", "scope"
 
       # @return [String]
       def signature
@@ -25,6 +29,28 @@ module DuckTesting
       # @return [YARD::Tags::Tag]
       def return_tag
         @return_tag ||= yard_object.tags.find { |tag| tag.tag_name == "return" }
+      end
+
+      # @return [Array<DuckTesting::Type::Base>]
+      def expected_return_types
+        return [] unless return_tag
+        return_tag.types.map do |type|
+          if type == "Boolean"
+            [
+              DuckTesting::Type::Constant.new(true),
+              DuckTesting::Type::Constant.new(false),
+            ]
+          elsif DuckTesting::Type::Constant::CONSTANTS.include?(type)
+            DuckTesting::Type::Constant.new(type)
+          elsif type == "void"
+            nil
+          elsif type.start_with?("Array")
+            # TODO: Support specifing types of array elements.
+            DuckTesting::Type::ClassInstance.new(Array)
+          else
+            DuckTesting::Type::ClassInstance.new(Object.const_get(type))
+          end
+        end.flatten.compact
       end
 
       # @return [Boolean]
@@ -47,7 +73,7 @@ module DuckTesting
       # @return [YARD::Tags::Tag]
       def get_parameter_tag(name)
         parameter_tags.find do |tag|
-          name == name.end_with?(":") ? "#{tag.name}:" : tag.name
+          name == (name.end_with?(":") ? "#{tag.name}:" : tag.name)
         end
       end
 

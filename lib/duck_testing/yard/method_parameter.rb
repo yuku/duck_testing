@@ -34,6 +34,11 @@ module DuckTesting
       def documented?
         !parameter_tag.nil?
       end
+
+      # @return [Boolean]
+      def keyword?
+        name.end_with?(":")
+      end
     end
   end
 end
