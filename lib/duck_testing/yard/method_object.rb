@@ -21,9 +21,27 @@ module DuckTesting
 
       # @return [Array<DuckTesting::YARD::MethodParameter>]
       def method_parameters
-        @method_parameters ||= yard_object.parameters.map do |name, default|
-          MethodParameter.new(self, name, default, get_parameter_tag(name))
+        @method_parameters ||= begin
+          if yard_object.parameters.any?
+            yard_object.parameters.map do |name, default|
+              MethodParameter.new(self, name, default, get_parameter_tag(name))
+            end
+          elsif parameter_tags.any?
+            # Maybe the method is defined using a DSL and its signature is
+            # declared with "@!method" directive.
+            parameter_tags.map do |tag|
+              MethodParameter.new(self, tag.name, nil, tag)
+            end
+          else
+            # The method does not take any arguments.
+            []
+          end
         end
+      end
+
+      # @return [Array<DuckTesting::YARD::MethodParameter>]
+      def keyword_parameters
+        method_parameters.select(&:keyword?)
       end
 
       # @return [YARD::Tags::Tag]

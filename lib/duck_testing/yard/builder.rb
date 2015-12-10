@@ -28,6 +28,26 @@ module DuckTesting
         @building_module.module_eval do
           define_method method_object.name do |*args|
             tester = DuckTesting::Tester.new(self, method_object.name)
+            if method_object.keyword_parameters.any? && args.last.is_a?(Hash)
+              # Normal parameters
+              args[0...-1].each_with_index do |arg, index|
+                method_parameter = method_object.method_parameters[index]
+                tester.test_param(arg, method_parameter.expected_types)
+              end
+
+              # Keyword parameters
+              hash = args.last
+              method_object.keyword_parameters.each do |method_parameter|
+                next unless hash.key?(method_parameter.key_name)
+                value = hash[method_parameter.key_name]
+                tester.test_param(value, method_parameter.expected_types)
+              end
+            else
+              args.each_with_index do |arg, index|
+                method_parameter = method_object.method_parameters[index]
+                tester.test_param(arg, method_parameter.expected_types)
+              end
+            end
 
             tester.test_return(super(*args), method_object.expected_return_types)
           end
