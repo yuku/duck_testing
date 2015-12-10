@@ -6,7 +6,7 @@ describe DuckTesting::YARD::Builder do
     let(:params) { [] }
 
     context 'when scope parameter is :instance' do
-      before { klass.prepend(subject) }
+      before { klass.send(:prepend, subject) }
       let(:contents) { "Hello, World" }
       let(:instance) { klass.new }
       let(:run) { instance.bar(*params) }
@@ -146,7 +146,7 @@ describe DuckTesting::YARD::Builder do
     end
 
     context 'when scope parameter is :class' do
-      before { klass.singleton_class.prepend(subject) }
+      before { klass.singleton_class.send(:prepend, subject) }
       let(:run) { klass.bar(*params) }
       let(:scope) { :class }
 
