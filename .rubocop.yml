@@ -4,6 +4,12 @@ Style/StringLiterals:
 Metrics/LineLength:
   Max: 100
 
+Metrics/MethodLength:
+  Max: 25
+
 # Document classes and non-namespace modules.
 Style/Documentation:
+  Enabled: false
+
+Style/TrailingComma:
   Enabled: false

@@ -3,3 +3,6 @@ inherit_from:
 
 Metrics/MethodLength:
   Enabled: false
+
+Style/SingleLineMethods:
+  Enabled: false

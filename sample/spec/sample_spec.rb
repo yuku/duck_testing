@@ -31,4 +31,3 @@ describe Sample do
     end
   end
 end
-
