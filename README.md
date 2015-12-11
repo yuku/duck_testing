@@ -6,6 +6,24 @@ Simple data type testing tool
 
 ## Usage
 
+### YARD
+
+```rb
+require "duck_testing"
+
+DuckTesting::YARD.apply
+```
+
+This code automatically generates duck_testing module for all classes in `{lib,app}/**/*.rb` and prepends them into corresponding classes. In most cases, you might put the code in `spec/spec_helper.rb` or `test/test_helper.rb`.
+
+You can include and exclude custom paths by using `paths` and `excluded` arguments. For instance, excluding Rails' controllers and views is written as follows:
+
+```rb
+DuckTesting::YARD.apply(excluded: [%r{^app/(controllers|views)}])
+```
+
+### Manually
+
 Suppose there are a class and corresponding _duck_testing_ module:
 
 ```rb
@@ -55,8 +73,3 @@ after.double(2.0)
 after.double("2")
 # ContractViolationError: Contract violation for argument Foo#double
 ```
-
-## TODO
-
-- Generate _duck_testing_ module by YARD document.
-- RSpec integration.
