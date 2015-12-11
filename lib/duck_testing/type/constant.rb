@@ -3,6 +3,8 @@ require "duck_testing/type/base"
 module DuckTesting
   module Type
     class Constant < Base
+      CONSTANTS = %w(true false)
+
       attr_reader :constant
 
       def initialize(constant)

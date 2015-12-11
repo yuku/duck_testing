@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+
+gem "duck_testing", path: "../"
+gem "pry"
+gem "rspec", "~> 3.3"
